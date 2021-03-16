@@ -17,6 +17,7 @@ module.exports = {
           "developer",
           "image",
           "createdAt",
+          "discount",
           "updatedAt",
         ],
         include: [
@@ -100,6 +101,7 @@ module.exports = {
           "releaseDate",
           "developer",
           "image",
+          "discount",
           "createdAt",
           "updatedAt",
         ],
@@ -129,6 +131,28 @@ module.exports = {
     } catch (error) {
       console.log(error);
       res.status(500).send({ error });
+    }
+  },
+  async update(req, res) {
+
+
+    const id = req.params.id;    
+    const {discount} = req.body
+
+    try {
+      const buy = await Game.findByPk(id);
+
+      if(!buy)
+        return res.status(404).send({error: "Jogo não encontrado para desconto"});
+      
+      buy.discount = discount;
+
+      buy.save();
+
+      res.status(204).send();
+
+    } catch (error) {
+      
     }
   }
 }

@@ -16,6 +16,7 @@ const routes = express.Router();
 routes.get("/games", gameController.index);
 routes.get("/games/:id", gameController.find);
 routes.post("/games", UploadImage, uploadFirebase, gameController.store);
+routes.put("/games/:id", gameController.update);
 
 //ROTAS DE EXCEL
 

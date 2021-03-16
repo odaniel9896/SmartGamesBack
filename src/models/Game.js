@@ -10,6 +10,7 @@ class Game extends Model {
         releaseDate: DataTypes.STRING,
         developer: DataTypes.STRING,
         image: DataTypes.STRING,
+        discount: DataTypes.DOUBLE,
       },
       {
         sequelize,
