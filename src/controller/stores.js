@@ -17,13 +17,13 @@ module.exports = {
 
         try {
             const store = await Store.create({
-               district,
-               street,
-               complement,
-               number,
-               cep
+                district,
+                street,
+                complement,
+                number,
+                cep
             });
-           
+
             res.status(201).send({
                 id: store.id,
                 district: store.district,
@@ -34,10 +34,10 @@ module.exports = {
             });
 
         } catch (error) {
-            
+
         }
     },
-    async find(req,res) {
+    async find(req, res) {
         const storeId = req.params.id;
         try {
             let store = await Store.findByPk(storeId);

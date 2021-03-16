@@ -2,35 +2,36 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    queryInterface.createTable('games', { 
+    queryInterface.createTable('games', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
       },
       name: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       price: {
         type: Sequelize.DOUBLE,
-        allowNull: false
+        allowNull: false,
       },
       description: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: false,
       },
       releaseDate: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       developer: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true,
       },
-      platform: {
-        type: Sequelize.STRING,
-        allowNull: false
+      discount: {
+        type: Sequelize.DOUBLE,
+        allowNull: true,
+        defaultValue: 0,
       },
       createdAt: {
         type: Sequelize.DATE,

@@ -4,7 +4,7 @@ module.exports = {
     password: "9896123",
     database: "dbsmartprime",
     dialect: "mysql",
-    define : {
+    define: {
         timestamp: true
     }
 }

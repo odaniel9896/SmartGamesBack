@@ -9,7 +9,6 @@ class Game extends Model {
         description: DataTypes.STRING,
         releaseDate: DataTypes.STRING,
         developer: DataTypes.STRING,
-        platform: DataTypes.STRING,
         image: DataTypes.STRING,
       },
       {
@@ -21,6 +20,8 @@ class Game extends Model {
   static associate(models) {
     this.belongsToMany(models.Category, { through: "games_category" });
     this.belongsToMany(models.Store, { through: "game_store" });
+    this.belongsToMany(models.Order, { through: "orders" });
+    this.belongsToMany(models.Platform, { through: "game_platform" });
   }
 }
 
