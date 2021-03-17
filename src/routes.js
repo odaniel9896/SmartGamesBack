@@ -30,7 +30,7 @@ routes.get("/stores/:id", storeController.find);
 
 //rotas de pedidos
 
-routes.post("/orders", orderController.store);
+routes.post("/orders/:id", orderController.store);
 
 //export das routes
 module.exports = routes;

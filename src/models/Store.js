@@ -9,6 +9,8 @@ class Store extends Model {
         complement: DataTypes.STRING,
         number: DataTypes.INTEGER,
         cep: DataTypes.STRING,
+        latitude: DataTypes.DOUBLE,
+        altitude: DataTypes.DOUBLE
       },
       {
         sequelize,

@@ -108,7 +108,7 @@ module.exports = {
         include: [
           {
             association: "Stores",
-            attributes: ["id", "district", "street", "number", "cep", "complement"]
+            attributes: ["id", "district", "street", "number", "cep", "complement", "altitude", "latitude"]
           },
           {
             association: "Categories",
@@ -137,19 +137,47 @@ module.exports = {
 
 
     const id = req.params.id;    
-    const {discount} = req.body
 
     try {
-      const buy = await Game.findByPk(id);
+      const buy = await Game.findByPk(id, {
+        attributes: [
+          "id",
+          "name",
+          "price",
+          "description",
+          "releaseDate",
+          "developer",
+          "image",
+          "discount",
+          "createdAt",
+          "updatedAt",
+        ],
+        include: [
+          {
+            association: "Stores",
+            attributes: ["id", "district", "street", "number", "cep", "complement", "altitude", "latitude"]
+          },
+          {
+            association: "Categories",
+            attributes: ["id", "description"],
+            through: { attributes: [] }
+          },
+          {
+            association: "Platforms",
+            attributes: ["id", "name"],
+            through: { attributes: [] }
+          }
+        ]
+      });
 
       if(!buy)
         return res.status(404).send({error: "Jogo não encontrado para desconto"});
       
-      buy.discount = discount;
+      buy.discount = 20
 
       buy.save();
 
-      res.status(204).send();
+      res.status(201).send(buy);
 
     } catch (error) {
       

@@ -2,18 +2,19 @@ const Order = require("../models/Order");
 
 module.exports = {
     async store(req, res) {
-        const { price, gameId } = req.body;
+        const gameId = req.params.id
+        const { pricePaid } = req.body;
 
         try {
             const order = await Order.create({
-                price,
+                pricePaid,
                 gameId: gameId,
             });
 
             res.status(201).send({
                 order: {
                     id: order.id,
-                    price: order.price,
+                    pricePaid: order.price,
                     gameId: order.gameId,
                 },
             });

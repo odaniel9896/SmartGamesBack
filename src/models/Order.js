@@ -4,7 +4,7 @@ class Order extends Model {
   static init(sequelize) {
     super.init(
       {
-        price: DataTypes.DECIMAL,
+        pricePaid: DataTypes.DECIMAL,
         gameId: DataTypes.INTEGER,
       },
       {
