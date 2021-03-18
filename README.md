@@ -1,4 +1,4 @@
-# Smash Games
+# Smash Games Back End
 
 A proposta do projeto é realizar um sistema para a Smash Games, sendo esse o BackEnd 
 
