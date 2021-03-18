@@ -29,7 +29,7 @@ module.exports = {
         }
     },
     async store(req, res) {
-        const { district, street, complement, number, cep } = req.body;
+        const { district, street, complement, number, cep, latitude, altitude } = req.body;
 
 
         try {
@@ -38,7 +38,9 @@ module.exports = {
                 street,
                 complement,
                 number,
-                cep
+                cep,
+                latitude,
+                altitude
             });
 
             res.status(201).send({
@@ -48,6 +50,8 @@ module.exports = {
                 complement: store.complement,
                 number: store.number,
                 cep: store.cep,
+                latitude: store.latitude,
+                altitude: stode.altitude
             });
 
         } catch (error) {
