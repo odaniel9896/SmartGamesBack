@@ -3,7 +3,24 @@ const Store = require("../models/Store")
 module.exports = {
     async index(req, res) {
         try {
-            const store = await Store.findAll()
+            const store = await Store.findAll({
+                attributes: [
+                    "id",
+                    "street",
+                    "district",
+                    "number",
+                    "cep",
+                    "complement",
+                    "altitude",
+                    "latitude"
+                ],
+                include: [
+                    {
+                        association: "Games",
+                        attributes: ["id", "name"]    
+                    }
+                ]
+            })
 
             res.send(store)
         } catch (error) {
