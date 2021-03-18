@@ -13,6 +13,7 @@ O Que é necessário para rodar o projeto ?
 - ir direto par a pasta raiz do projeto
 - executar npm install
 - Importar o Banco no MYSQL
+- Na pasta config, no arquivo database, altere os dados para o seu banco de dados local
 
 ```
 

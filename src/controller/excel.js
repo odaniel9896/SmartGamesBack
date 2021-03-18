@@ -6,7 +6,17 @@ const excel = require("exceljs");
 module.exports = {
   async index(req, res) {
 
-    Game.findAll().then((objs) => {
+    Game.findAll({
+      attributes: [
+        "id",
+        "name",
+        "description",
+        "releaseDate",
+        "price",
+        "developer",
+        "image"
+      ]
+    }).then((objs) => {
       let games = [];
 
       objs.forEach((obj) => {
@@ -17,7 +27,7 @@ module.exports = {
           releaseDate: obj.releaseDate,
           price: obj.price,
           developer: obj.developer,
-          image: obj.image,
+          image: obj.image
         });
       });
 

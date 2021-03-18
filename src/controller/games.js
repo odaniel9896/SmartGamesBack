@@ -6,7 +6,6 @@ module.exports = {
   //retorna todos os games
   async index(req, res) {
 
-    const console = req.query.console
 
     try {
       const game = await Game.findAll({
