@@ -6,6 +6,8 @@ module.exports = {
   //retorna todos os games
   async index(req, res) {
 
+    const console = req.query.console
+
     try {
       const game = await Game.findAll({
         attributes: [
@@ -23,7 +25,8 @@ module.exports = {
         include: [
           {
             association: "Stores",
-            attributes: ["id", "district", "street", "number", "cep", "complement"]
+            attributes: ["id", "district", "street", "number", "cep", "complement",  "altitude", "latitude"],
+            through: { attributes: [] }
           },
           {
             association: "Categories",
@@ -108,7 +111,8 @@ module.exports = {
         include: [
           {
             association: "Stores",
-            attributes: ["id", "district", "street", "number", "cep", "complement", "altitude", "latitude"]
+            attributes: ["id", "district", "street", "number", "cep", "complement", "altitude", "latitude"],
+            
           },
           {
             association: "Categories",
